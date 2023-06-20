@@ -11,7 +11,6 @@ const UserPlaces = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
   const userId = useParams().userId;
-  console.log(userId);
 
   useEffect(() => {
     const fetchPlaces = async () => {
@@ -19,7 +18,7 @@ const UserPlaces = () => {
         const responseData = await sendRequest(
           `https://placediscapi.onrender.com/api/places/user/${userId}`
         );
-        console.log(responseData);
+
         setLoadedPlaces(responseData.places);
       } catch (err) {}
     };
