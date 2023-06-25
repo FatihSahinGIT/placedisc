@@ -1,41 +1,8 @@
 .user-item {
   margin: 1rem;
-  min-width: 100%;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.users-container {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.users-content {
-  margin-top: 5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-}
-
-.users-text {
-  width: 80%;
-}
-
-.users-content h1 {
-  font-size: 5rem;
-  width: 80%;
-  color: #0f0f0f;
-}
-
-.users-content p {
-  font-size: 1.5rem;
+  width: 300px;
+  min-width: 10%;
+  list-style: none;
 }
 
 .user-item a {
@@ -44,10 +11,12 @@
   width: 100%;
   height: 100%;
   text-decoration: none;
-  padding: 2rem;
+  padding: 1.5rem;
   color: #0f0f0f;
   background: #ffff;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   transition: all 0.35s ease-in-out;
+  border-radius: 12px;
 }
 
 .user-item a:hover,
