@@ -16,7 +16,7 @@ const Home = () => {
         />
       </video>
       <header>
-        <div class="section__container header__container">
+        <div className="section__container header__container">
           <div className="header__image">
             <img src={img1} alt="header" />
             <img src={img2} alt="header" />
