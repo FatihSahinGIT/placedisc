@@ -1,7 +1,41 @@
 .user-item {
   margin: 1rem;
-  width: calc(45% - 2rem);
-  min-width: 17.5rem;
+  min-width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.users-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.users-content {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+
+.users-text {
+  width: 80%;
+}
+
+.users-content h1 {
+  font-size: 5rem;
+  width: 80%;
+  color: #0f0f0f;
+}
+
+.users-content p {
+  font-size: 1.5rem;
 }
 
 .user-item a {
@@ -10,9 +44,10 @@
   width: 100%;
   height: 100%;
   text-decoration: none;
-  padding: 1rem;
-  color: #f5f5f5;
-  background: #292929;
+  padding: 2rem;
+  color: #0f0f0f;
+  background: #ffff;
+  transition: all 0.35s ease-in-out;
 }
 
 .user-item a:hover,
@@ -25,16 +60,17 @@
 }
 
 .user-item__image {
-  width: 4rem;
-  height: 4rem;
+  width: 7rem;
+  height: 7rem;
   margin-right: 1rem;
 }
 
 .user-item__info h2 {
-  font-size: 1.5rem;
+  font-size: 2rem;
+  font-weight: 800;
   margin: 0 0 0.5rem 0;
   font-weight: normal;
-  color: #f5f5f5;
+  color: #0f0f0f;
 }
 
 .user-item:hover h2,

@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-import MainHeader from './MainHeader';
-import NavLinks from './NavLinks';
-import SideDrawer from './SideDrawer';
-import Backdrop from '../UIElements/Backdrop';
-import './MainNavigation.css';
+import MainHeader from "./MainHeader";
+import NavLinks from "./NavLinks";
+import SideDrawer from "./SideDrawer";
+import Backdrop from "../UIElements/Backdrop";
+import "./MainNavigation.css";
 
-const MainNavigation = props => {
+import Logo from "./e6f10246c5a84979be038c3d32cd8a92-removebg-preview.png";
+
+const MainNavigation = (props) => {
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
 
   const openDrawerHandler = () => {
@@ -37,7 +39,9 @@ const MainNavigation = props => {
           <span />
         </button>
         <h1 className="main-navigation__title">
-          <Link to="/">Placedisc</Link>
+          <Link to="/">
+            <img src={Logo} alt="Placedisc Logo" id="logo" />
+          </Link>
         </h1>
         <nav className="main-navigation__header-nav">
           <NavLinks />

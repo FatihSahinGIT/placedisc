@@ -1,7 +1,7 @@
 import React from "react";
 import "./Home.css";
 
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import sample from "../../util/pexels-cottonbro-studio-6328202-4096x2160-25fps.mp4";
 
@@ -19,9 +19,9 @@ const Home = () => {
           </h1>
           <button className="secondary-button">
             {" "}
-            <NavLink to="/users" exact>
+            <Link to="/users">
               find places
-            </NavLink>
+            </Link>
           </button>
         </div>
       </div>

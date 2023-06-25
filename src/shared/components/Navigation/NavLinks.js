@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { AuthContext } from "../../context/auth-context";
 import "./NavLinks.css";
@@ -10,23 +10,23 @@ const NavLinks = (props) => {
   return (
     <ul className="nav-links">
       <li>
-        <NavLink to="/users" exact>
+        <Link to="/users">
           Community
-        </NavLink>
+        </Link>
       </li>
       {auth.isLoggedIn && (
         <li>
-          <NavLink to={`/${auth.userId}/places`}>My places</NavLink>
+          <Link to={`/${auth.userId}/places`}>My places</Link>
         </li>
       )}
       {auth.isLoggedIn && (
         <li>
-          <NavLink to="/places/new">Add place</NavLink>
+          <Link to="/places/new">Add place</Link>
         </li>
       )}
       {!auth.isLoggedIn && (
         <li>
-          <NavLink to="/auth">Login | Sign Up</NavLink>
+          <Link to="/auth">Login | Sign Up</Link>
         </li>
       )}
       {auth.isLoggedIn && (
