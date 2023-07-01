@@ -15,6 +15,8 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 import { AuthContext } from "../../shared/context/auth-context";
 import "./PlaceForm.css";
 
+import transition from "../../transition";
+
 const NewPlace = () => {
   const auth = useContext(AuthContext);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -105,4 +107,4 @@ const NewPlace = () => {
   );
 };
 
-export default NewPlace;
+export default transition(NewPlace);

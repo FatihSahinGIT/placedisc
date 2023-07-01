@@ -7,9 +7,10 @@ import SideDrawer from "./SideDrawer";
 import Backdrop from "../UIElements/Backdrop";
 import "./MainNavigation.css";
 
-import Logo from "./e6f10246c5a84979be038c3d32cd8a92-removebg-preview.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
-const MainNavigation = (props) => {
+const MainNavigation = () => {
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
 
   const openDrawerHandler = () => {
@@ -34,13 +35,11 @@ const MainNavigation = (props) => {
           className="main-navigation__menu-btn"
           onClick={openDrawerHandler}
         >
-          <span />
-          <span />
-          <span />
+          <FontAwesomeIcon icon={faBars} />
         </button>
         <h1 className="main-navigation__title">
           <Link to="/">
-            <img src={Logo} alt="Placedisc Logo" id="logo" />
+            <h1>Placedisc</h1>
           </Link>
         </h1>
         <nav className="main-navigation__header-nav">

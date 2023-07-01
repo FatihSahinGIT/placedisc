@@ -16,6 +16,8 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 import { AuthContext } from "../../shared/context/auth-context";
 import "./Auth.css";
 
+import transition from "../../transition";
+
 const Auth = () => {
   const auth = useContext(AuthContext);
   const [isLoginMode, setIsLoginMode] = useState(true);
@@ -156,4 +158,4 @@ const Auth = () => {
   );
 };
 
-export default Auth;
+export default transition(Auth);

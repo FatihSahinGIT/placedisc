@@ -1,4 +1,6 @@
 import React from "react";
+
+import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Users from "./user/pages/Users";
@@ -11,6 +13,8 @@ import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import { AuthContext } from "./shared/context/auth-context";
 import { useAuth } from "./shared/hooks/auth-hook";
 
+import { AnimatePresence } from "framer-motion";
+
 const App = () => {
   const { token, login, logout, userId } = useAuth();
 
@@ -18,22 +22,26 @@ const App = () => {
 
   if (token) {
     routes = (
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/users" element={<Users />} />
-        <Route path="/:userId/places" element={<UserPlaces />} />
-        <Route path="/places/new" element={<NewPlace />} />
-        <Route path="/places/:placeId" element={<UpdatePlace />} />
-      </Routes>
+      <AnimatePresence>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/users" element={<Users />} />
+          <Route path="/:userId/places" element={<UserPlaces />} />
+          <Route path="/places/new" element={<NewPlace />} />
+          <Route path="/places/:placeId" element={<UpdatePlace />} />
+        </Routes>
+      </AnimatePresence>
     );
   } else {
     routes = (
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/users" element={<Users />} />
-        <Route path="/:userId/places" element={<UserPlaces />} />
-        <Route path="/auth" element={<Auth />} />
-      </Routes>
+      <AnimatePresence>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/users" element={<Users />} />
+          <Route path="/:userId/places" element={<UserPlaces />} />
+          <Route path="/auth" element={<Auth />} />
+        </Routes>
+      </AnimatePresence>
     );
   }
 
@@ -48,7 +56,9 @@ const App = () => {
       }}
     >
       <Router>
-        <MainNavigation />
+        <header>
+          <MainNavigation />
+        </header>
         <main>{routes}</main>
       </Router>
     </AuthContext.Provider>

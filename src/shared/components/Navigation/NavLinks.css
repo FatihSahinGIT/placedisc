@@ -12,12 +12,12 @@
 
 .nav-links a {
   border-radius: 8px;
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-size: 1.05rem;
+  font-weight: 800;
   color: #0f0f0f;
   text-decoration: none;
-  padding: 0.5rem;
-  transition: all 0.2s ease-in-out;
+  padding: 1rem 0.5rem;
+  transition: all 0.4s ease-in-out;
 }
 
 .nav-links a:hover,
