@@ -1,6 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 
-import Card from "../../shared/components/UIElements/Card";
+import { gsap } from "gsap";
+
+import bgimg from "./IMG_6927.jpg";
+import frontimg from "./IMG_6928.jpg";
+
 import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
@@ -36,6 +40,40 @@ const Auth = () => {
     },
     false
   );
+
+  useEffect(() => {
+    gsap.from(".hero-image-wrapper, .content-wrapper, .front-img", 2, {
+      delay: 1,
+      clipPath: "inset(0 100% 0 0)",
+      ease: "power4.inOut",
+      stagger: {
+        amount: 0.5,
+      },
+    });
+
+    gsap.from("img", 3, {
+      delay: 1.5,
+      scale: 2,
+      ease: "power4.inOut",
+      stagger: {
+        amount: 0.25,
+      },
+    });
+
+    gsap.to(
+      "header h1, header h2",
+      1,
+      {
+        delay: 1,
+        top: 0,
+        ease: "power3.out",
+        stagger: {
+          amount: 0.2,
+        },
+      },
+      "-=1"
+    );
+  }, []);
 
   const switchModeHandler = () => {
     if (!isLoginMode) {
@@ -105,55 +143,70 @@ const Auth = () => {
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
-      <Card className="authentication">
+      <div class="container">
         {isLoading && <LoadingSpinner asOverlay />}
-        <h2>Login</h2>
-        <form onSubmit={authSubmitHandler}>
-          {!isLoginMode && (
-            <Input
-              element="input"
-              id="name"
-              type="text"
-              label="Your Name"
-              validators={[VALIDATOR_REQUIRE()]}
-              errorText="Please enter a name."
-              onInput={inputHandler}
-            />
-          )}
-          {!isLoginMode && (
-            <ImageUpload
-              center
-              id="image"
-              onInput={inputHandler}
-              errorText="Please provide an image."
-            />
-          )}
-          <Input
-            element="input"
-            id="email"
-            type="email"
-            label="E-Mail"
-            validators={[VALIDATOR_EMAIL()]}
-            errorText="Please enter a valid email address."
-            onInput={inputHandler}
-          />
-          <Input
-            element="input"
-            id="password"
-            type="password"
-            label="Password"
-            validators={[VALIDATOR_MINLENGTH(6)]}
-            errorText="Please enter a valid password, at least 6 characters."
-            onInput={inputHandler}
-          />
-          <Button type="submit" disabled={!formState.isValid}>
-            {isLoginMode ? "Login" : "Sign Up"}
-          </Button>
-        </form>
-        <Button inverse onClick={switchModeHandler}>
-          {isLoginMode ? "Create a new account" : "Login to your account"}
-        </Button>
-      </Card>
+        <div class="hero-image-wrapper wrapper">
+          <div class="bg-img">
+            <img src={bgimg} alt="" />
+          </div>
+          <div class="front-img">
+            <img src={frontimg} alt="" />
+          </div>
+        </div>
+        <div class="content-wrapper-auth wrapper">
+          <div>
+            <div class="form-wrapper">
+              <form onSubmit={authSubmitHandler}>
+                {!isLoginMode && (
+                  <Input
+                    element="input"
+                    id="name"
+                    ty
+                    pe="text"
+                    label="Your Name"
+                    validators={[VALIDATOR_REQUIRE()]}
+                    errorText="Please enter a name."
+                    onInput={inputHandler}
+                  />
+                )}
+                <Input
+                  element="input"
+                  id="email"
+                  type="email"
+                  label="E-Mail"
+                  validators={[VALIDATOR_EMAIL()]}
+                  errorText="Please enter a valid email address."
+                  onInput={inputHandler}
+                />
+                {!isLoginMode && (
+                  <ImageUpload
+                    center
+                    id="image"
+                    onInput={inputHandler}
+                    errorText="Please provide an image."
+                  />
+                )}
+
+                <Input
+                  element="input"
+                  id="password"
+                  type="password"
+                  label="Password"
+                  validators={[VALIDATOR_MINLENGTH(6)]}
+                  errorText="Please enter a valid password, at least 6 characters."
+                  onInput={inputHandler}
+                />
+                <Button type="submit" disabled={!formState.isValid}>
+                  {isLoginMode ? "Login" : "Sign Up"}
+                </Button>
+              </form>
+              <Button inverse onClick={switchModeHandler}>
+                {isLoginMode ? "Create a new account" : "Login to your account"}
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
     </React.Fragment>
   );
 };
