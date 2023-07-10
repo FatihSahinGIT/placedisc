@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { gsap } from "gsap";
 
@@ -26,6 +27,7 @@ const Auth = () => {
   const auth = useContext(AuthContext);
   const [isLoginMode, setIsLoginMode] = useState(true);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const navigate = useNavigate();
 
   const [formState, inputHandler, setFormData] = useForm(
     {
@@ -121,6 +123,7 @@ const Auth = () => {
           }
         );
         auth.login(responseData.userId, responseData.token);
+        navigate(`/${responseData.userId}/places`);
       } catch (err) {}
     } else {
       try {
@@ -136,6 +139,7 @@ const Auth = () => {
         );
 
         auth.login(responseData.userId, responseData.token);
+        navigate(`/users`);
       } catch (err) {}
     }
   };
