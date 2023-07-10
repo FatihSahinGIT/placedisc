@@ -17,3 +17,13 @@
 
   border-radius: 12px;
 }
+
+@media screen and (max-width: 767px) {
+  .avatar {
+    display: block;
+  }
+  .avatar img {
+    width: 75%;
+    height: 100%;
+  }
+}

@@ -18,6 +18,11 @@
 
 @media screen and (max-width: 767px) {
   .users-container {
-    margin-top: 9rem;
+    margin-top: 12rem;
+  }
+
+  .users-list {
+    margin: 0;
+    padding: 0;
   }
 }
